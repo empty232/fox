@@ -488,7 +488,6 @@
         LHW:"中国兰州",
         XNN:"中国西宁",
         KWE:"中国贵阳",
-        ZHA:"中国张家界",
         SWA:"中国揭阳"
     };
 
@@ -505,8 +504,6 @@
 
             const text = await res.text();
             const coloMatch = text.match(/colo=(\w+)/);
-            const locMatch = text.match(/loc=(\w+)/);
-            const ipMatch = text.match(/ip=([\d:.a-fA-F]+)/);
 
             if (!coloMatch) {
                 cityEl.textContent = "未检测到节点";
@@ -522,12 +519,7 @@
             cityEl.textContent = location;
             codeEl.textContent = code;
             statusEl.textContent = "已连接";
-
-            if (ipMatch && locMatch) {
-                subEl.textContent = `当前访问由 Cloudflare ${code} 边缘节点处理 · 访客 IP ${ipMatch[1]}`;
-            } else {
-                subEl.textContent = `当前访问由 Cloudflare ${code} 边缘节点处理`;
-            }
+            subEl.textContent = `当前访问由 Cloudflare ${code} 边缘节点处理`;
 
             // 节点名渐入动画
             cityEl.parentElement.style.opacity = "0";
