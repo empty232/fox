@@ -340,20 +340,17 @@
 
     const nodeText = document.getElementById("nodeText");
 
-    // 增加超时，超过1.5s直接判定失败，不会无限等待
     async function getCFNode() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 1500);
         try {
-            const res = await fetch("/cdn-cgi/trace", {
+            const res = await fetch("https://workers-playground-curly-art-4a74.2262222222.workers.dev/", {
                 signal: controller.signal
             });
             clearTimeout(timeoutId);
             if (!res.ok) throw new Error();
-            const text = await res.text();
-            const coloMatch = text.match(/colo=(\w+)/);
-            if (!coloMatch) throw new Error();
-            const code = coloMatch[1];
+            const data = await res.json();
+            const code = data.colo;
             const location = coloMap[code] || `未知节点 ${code}`;
             nodeText.textContent = `${location} [${code}]`;
         } catch (err) {
