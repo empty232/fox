@@ -153,23 +153,120 @@
             font-size: 20px;
         }
 
-        /* CF节点信息模块 */
-        .node-info {
-            margin-top:24px;
-            padding:16px;
-            border-radius:20px;
-            background:rgba(255,255,255,0.6);
-            border:1px solid rgba(255,255,255,0.7);
+        /* Cloudflare 节点状态卡 */
+        .node-card {
+            margin-top: 28px;
+            padding: 20px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.62);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                0 18px 40px rgba(31, 41, 55, 0.12);
+            text-align: left;
         }
-        .node-info h3{
-            font-size:16px;
-            margin-bottom:10px;
-            color:#374151;
+
+        .node-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
         }
-        .node-text{
-            font-size:14px;
-            color:#4b5563;
+
+        .node-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
         }
+
+        .node-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #f6821f, #faad3f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            box-shadow: 0 8px 18px rgba(246, 130, 31, 0.35);
+        }
+
+        .node-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            font-size: 12px;
+            color: #065f46;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 999px;
+        }
+
+        .node-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+        }
+
+        .node-body {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .node-name {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            color: #111827;
+        }
+
+        .node-code {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #f6821f;
+            background: rgba(246, 130, 31, 0.12);
+            border: 1px solid rgba(246, 130, 31, 0.25);
+            border-radius: 8px;
+            vertical-align: middle;
+        }
+
+        .node-sub {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* 信号条 */
+        .signal {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 28px;
+        }
+
+        .signal span {
+            display: block;
+            width: 4px;
+            background: rgba(156, 163, 175, 0.35);
+            border-radius: 2px;
+        }
+
+        .signal .s1 { height: 25%; background: #10b981; }
+        .signal .s2 { height: 50%; background: #10b981; }
+        .signal .s3 { height: 75%; background: #10b981; }
+        .signal .s4 { height: 100%; background: #10b981; }
 
         footer {
             margin-top: 32px;
@@ -215,15 +312,30 @@
                 color: white;
             }
 
-            .node-info{
-                background:rgba(255,255,255,0.08);
-                border:1px solid rgba(255,255,255,0.14);
+            .node-card {
+                background: rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.14);
+                box-shadow:
+                    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+                    0 18px 40px rgba(0, 0, 0, 0.35);
             }
-            .node-info h3{
-                color:#e5e7eb;
+
+            .node-title {
+                color: #e5e7eb;
             }
-            .node-text{
-                color:#d1d5db;
+
+            .node-status {
+                color: #d1fae5;
+                background: rgba(16, 185, 129, 0.14);
+                border-color: rgba(16, 185, 129, 0.28);
+            }
+
+            .node-name {
+                color: #f9fafb;
+            }
+
+            .node-sub {
+                color: #9ca3af;
             }
 
             footer {
@@ -263,10 +375,35 @@
                 </a>
             </div>
 
-            <!-- CF节点信息区域 -->
-            <div class="node-info">
-                <h3>☁️ Cloudflare CDN节点</h3>
-                <div class="node-text" id="nodeResult">加载中...</div>
+            <!-- Cloudflare 节点状态卡 -->
+            <div class="node-card">
+                <div class="node-header">
+                    <div class="node-title">
+                        <div class="node-icon">☁️</div>
+                        <span>Cloudflare CDN 节点</span>
+                    </div>
+                    <span class="node-status">
+                        <span class="node-status-dot"></span>
+                        <span id="nodeStatusText">连接中</span>
+                    </span>
+                </div>
+
+                <div class="node-body">
+                    <div>
+                        <div class="node-name" id="nodeName">
+                            <span id="nodeCity">加载中</span>
+                            <span class="node-code" id="nodeCode">---</span>
+                        </div>
+                        <div class="node-sub" id="nodeSub">正在获取最近加速节点…</div>
+                    </div>
+
+                    <div class="signal" id="signal">
+                        <span class="s1"></span>
+                        <span class="s2"></span>
+                        <span class="s3"></span>
+                        <span class="s4"></span>
+                    </div>
+                </div>
             </div>
 
             <footer>
@@ -276,42 +413,151 @@
     </div>
 
 <script>
-// CF节点三字码映射
-const coloMap = {
-    FRA:"德国 法兰克福",
-    LHR:"英国 伦敦",
-    AMS:"荷兰 阿姆斯特丹",
-    CDG:"法国 巴黎",
-    SJC:"美国 圣何塞",
-    DFW:"美国 达拉斯",
-    HKG:"中国香港",
-    SIN:"新加坡",
-    NRT:"日本 东京",
-    ICN:"韩国 首尔",
-    BKK:"泰国 曼谷",
-    MUC:"德国 慕尼黑"
-};
+    const coloMap = {
+        FRA:"德国 法兰克福",
+        LHR:"英国 伦敦",
+        AMS:"荷兰 阿姆斯特丹",
+        CDG:"法国 巴黎",
+        SJC:"美国 圣何塞",
+        DFW:"美国 达拉斯",
+        HKG:"中国香港",
+        SIN:"新加坡",
+        NRT:"日本 东京",
+        ICN:"韩国 首尔",
+        BKK:"泰国 曼谷",
+        MUC:"德国 慕尼黑",
+        MAD:"西班牙 马德里",
+        FCO:"意大利 罗马",
+        ARN:"瑞典 斯德哥尔摩",
+        OSL:"挪威 奥斯陆",
+        CPH:"丹麦 哥本哈根",
+        DME:"俄罗斯 莫斯科",
+        JFK:"美国 纽约",
+        LAX:"美国 洛杉矶",
+        ATL:"美国 亚特兰大",
+        IAD:"美国 华盛顿",
+        MIA:"美国 迈阿密",
+        SEA:"美国 西雅图",
+        YYZ:"加拿大多伦多",
+        YVR:"加拿大温哥华",
+        GRU:"巴西 圣保罗",
+        EZE:"阿根廷 布宜诺斯艾利斯",
+        JNB:"南非 约翰内斯堡",
+        CAI:"埃及 开罗",
+        DXB:"阿联酋 迪拜",
+        AUH:"阿联酋 阿布扎比",
+        KWI:"科威特 科威特城",
+        DOH:"卡塔尔 多哈",
+        BAH:"巴林 麦纳麦",
+        ISB:"巴基斯坦 伊斯兰堡",
+        KHI:"巴基斯坦 卡拉奇",
+        DEL:"印度 新德里",
+        BOM:"印度 孟买",
+        MAA:"印度 金奈",
+        HYD:"印度 海得拉巴",
+        BLR:"印度 班加罗尔",
+        CCU:"印度 加尔各答",
+        KUL:"马来西亚 吉隆坡",
+        TPE:"中国台北",
+        TNA:"中国济南",
+        TSJ:"中国三亚",
+        SZX:"中国深圳",
+        CAN:"中国广州",
+        NNG:"中国南宁",
+        KMG:"中国昆明",
+        HGH:"中国杭州",
+        SHA:"中国上海",
+        PEK:"中国北京",
+        XIY:"中国西安",
+        CKG:"中国重庆",
+        CTU:"中国成都",
+        WUH:"中国武汉",
+        HFE:"中国合肥",
+        NKG:"中国南京",
+        TSN:"中国天津",
+        ZHA:"中国张家界",
+        KHN:"中国南昌",
+        FOC:"中国福州",
+        XMN:"中国厦门",
+        ZUH:"中国珠海",
+        BHY:"中国北海",
+        LZY:"中国洛阳",
+        HET:"中国呼和浩特",
+        URC:"中国乌鲁木齐",
+        NX5:"中国宁夏",
+        LHW:"中国兰州",
+        XNN:"中国西宁",
+        KWE:"中国贵阳",
+        ZHA:"中国张家界",
+        SWA:"中国揭阳"
+    };
 
-(async function getCFNode(){
-    const dom = document.getElementById("nodeResult");
-    try{
-        // 请求CF内置trace接口
-        const res = await fetch("/cdn-cgi/trace");
-        if(!res.ok) throw new Error();
-        const text = await res.text();
-        // 提取colo=xxx
-        const match = text.match(/colo=(\w+)/);
-        if(match && match[1]){
-            const code = match[1];
-            const location = coloMap[code] || `未知节点(${code})`;
-            dom.innerText = `${location} [${code}]`;
-        }else{
-            dom.innerText = "无法获取CDN节点";
+    const cityEl = document.getElementById("nodeCity");
+    const codeEl = document.getElementById("nodeCode");
+    const subEl = document.getElementById("nodeSub");
+    const statusEl = document.getElementById("nodeStatusText");
+    const signalEl = document.getElementById("signal");
+
+    async function getCFNode() {
+        try {
+            const res = await fetch("/cdn-cgi/trace");
+            if (!res.ok) throw new Error("trace failed");
+
+            const text = await res.text();
+            const coloMatch = text.match(/colo=(\w+)/);
+            const locMatch = text.match(/loc=(\w+)/);
+            const ipMatch = text.match(/ip=([\d:.a-fA-F]+)/);
+
+            if (!coloMatch) {
+                cityEl.textContent = "未检测到节点";
+                codeEl.textContent = "---";
+                subEl.textContent = "请确认域名已接入 Cloudflare 并开启代理";
+                statusEl.textContent = "未连接";
+                return;
+            }
+
+            const code = coloMatch[1];
+            const location = coloMap[code] || `未知节点 ${code}`;
+
+            cityEl.textContent = location;
+            codeEl.textContent = code;
+            statusEl.textContent = "已连接";
+
+            if (ipMatch && locMatch) {
+                subEl.textContent = `当前访问由 Cloudflare ${code} 边缘节点处理 · 访客 IP ${ipMatch[1]}`;
+            } else {
+                subEl.textContent = `当前访问由 Cloudflare ${code} 边缘节点处理`;
+            }
+
+            // 节点名渐入动画
+            cityEl.parentElement.style.opacity = "0";
+            cityEl.parentElement.style.transform = "translateY(6px)";
+            cityEl.parentElement.style.transition = "all 0.3s ease";
+            requestAnimationFrame(() => {
+                cityEl.parentElement.style.opacity = "1";
+                cityEl.parentElement.style.transform = "translateY(0)";
+            });
+
+            // 信号条动画
+            const bars = signalEl.querySelectorAll("span");
+            bars.forEach((bar, i) => {
+                bar.style.opacity = "0";
+                bar.style.transform = "scaleY(0.3)";
+                bar.style.transition = "all 0.25s ease";
+                setTimeout(() => {
+                    bar.style.opacity = "1";
+                    bar.style.transform = "scaleY(1)";
+                }, 100 * i);
+            });
+        } catch (err) {
+            cityEl.textContent = "获取失败";
+            codeEl.textContent = "---";
+            subEl.textContent = "网络异常或未通过 Cloudflare 访问";
+            statusEl.textContent = "异常";
         }
-    }catch(err){
-        dom.innerText = "请确认域名已接入Cloudflare";
     }
-})();
+
+    getCFNode();
 </script>
 </body>
 </html>
