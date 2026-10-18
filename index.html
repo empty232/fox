@@ -153,6 +153,24 @@
             font-size: 20px;
         }
 
+        /* CF节点信息模块 */
+        .node-info {
+            margin-top:24px;
+            padding:16px;
+            border-radius:20px;
+            background:rgba(255,255,255,0.6);
+            border:1px solid rgba(255,255,255,0.7);
+        }
+        .node-info h3{
+            font-size:16px;
+            margin-bottom:10px;
+            color:#374151;
+        }
+        .node-text{
+            font-size:14px;
+            color:#4b5563;
+        }
+
         footer {
             margin-top: 32px;
             font-size: 13px;
@@ -197,6 +215,17 @@
                 color: white;
             }
 
+            .node-info{
+                background:rgba(255,255,255,0.08);
+                border:1px solid rgba(255,255,255,0.14);
+            }
+            .node-info h3{
+                color:#e5e7eb;
+            }
+            .node-text{
+                color:#d1d5db;
+            }
+
             footer {
                 color: #9ca3af;
             }
@@ -234,10 +263,55 @@
                 </a>
             </div>
 
+            <!-- CF节点信息区域 -->
+            <div class="node-info">
+                <h3>☁️ Cloudflare CDN节点</h3>
+                <div class="node-text" id="nodeResult">加载中...</div>
+            </div>
+
             <footer>
                 © 2026 Empty · Powered by GitHub Pages
             </footer>
         </div>
     </div>
+
+<script>
+// CF节点三字码映射
+const coloMap = {
+    FRA:"德国 法兰克福",
+    LHR:"英国 伦敦",
+    AMS:"荷兰 阿姆斯特丹",
+    CDG:"法国 巴黎",
+    SJC:"美国 圣何塞",
+    DFW:"美国 达拉斯",
+    HKG:"中国香港",
+    SIN:"新加坡",
+    NRT:"日本 东京",
+    ICN:"韩国 首尔",
+    BKK:"泰国 曼谷",
+    MUC:"德国 慕尼黑"
+};
+
+(async function getCFNode(){
+    const dom = document.getElementById("nodeResult");
+    try{
+        // 请求CF内置trace接口
+        const res = await fetch("/cdn-cgi/trace");
+        if(!res.ok) throw new Error();
+        const text = await res.text();
+        // 提取colo=xxx
+        const match = text.match(/colo=(\w+)/);
+        if(match && match[1]){
+            const code = match[1];
+            const location = coloMap[code] || `未知节点(${code})`;
+            dom.innerText = `${location} [${code}]`;
+        }else{
+            dom.innerText = "无法获取CDN节点";
+        }
+    }catch(err){
+        dom.innerText = "请确认域名已接入Cloudflare";
+    }
+})();
+</script>
 </body>
 </html>
