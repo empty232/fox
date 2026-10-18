@@ -3,14 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>测试网页</title>
+    <title>我的个人主页</title>
     <style>
-        body { margin: 0; padding: 50px; text-align: center; font-family: Arial, sans-serif; }
-        h1 { color: #2c3e50; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #2d3748;
+            padding: 60px 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background-color: #3498db;
+            margin: 0 auto 30px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            font-size:48px;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom:12px;
+        }
+        .desc {
+            font-size:18px;
+            color:#64748b;
+            margin-bottom:40px;
+        }
+        .links {
+            display: grid;
+            gap:16px;
+        }
+        .link-item {
+            display:block;
+            padding:18px;
+            background:white;
+            border-radius:14px;
+            text-decoration:none;
+            color:#2d3748;
+            font-size:17px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .link-item:hover {
+            background:#3498db;
+            color:white;
+            transform: translateY(-2px);
+        }
+        footer {
+            margin-top:60px;
+            color:#94a3b8;
+            font-size:14px;
+        }
     </style>
 </head>
 <body>
-    <h1>你好！这是远程更新仓库的测试页面 👋</h1>
-    <p>后续更新可直接推送代码至仓库，本地拉取即可同步～</p>
+    <div class="container">
+        <div class="avatar">👨‍💻</div>
+        <h1>Fox</h1>
+        <p class="desc">爱好网页、折腾服务器与GitHub静态站点</p>
+
+        <div class="links">
+            <a class="link-item" href="/blog">📖 我的博客</a>
+            <a class="link-item" href="/note">📝 云笔记</a>
+            <a class="link-item" href="https://github.com/fox925">🐙 GitHub</a>
+            <a class="link-item" href="#">💬 联系我</a>
+        </div>
+
+        <footer>
+            © 2026 Fox | Powered by GitHub Pages
+        </footer>
+    </div>
 </body>
 </html>
