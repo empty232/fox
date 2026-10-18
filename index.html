@@ -260,25 +260,107 @@
     </div>
 
 <script>
+    const coloMap = {
+        FRA:"德国 法兰克福",
+        LHR:"英国 伦敦",
+        AMS:"荷兰 阿姆斯特丹",
+        CDG:"法国 巴黎",
+        SJC:"美国 圣何塞",
+        DFW:"美国 达拉斯",
+        HKG:"中国香港",
+        SIN:"新加坡",
+        NRT:"日本 东京",
+        ICN:"韩国 首尔",
+        BKK:"泰国 曼谷",
+        MUC:"德国 慕尼黑",
+        MAD:"西班牙 马德里",
+        FCO:"意大利 罗马",
+        ARN:"瑞典 斯德哥尔摩",
+        OSL:"挪威 奥斯陆",
+        CPH:"丹麦 哥本哈根",
+        DME:"俄罗斯 莫斯科",
+        JFK:"美国 纽约",
+        LAX:"美国 洛杉矶",
+        ATL:"美国 亚特兰大",
+        IAD:"美国 华盛顿",
+        MIA:"美国 迈阿密",
+        SEA:"美国 西雅图",
+        YYZ:"加拿大多伦多",
+        YVR:"加拿大温哥华",
+        GRU:"巴西 圣保罗",
+        EZE:"阿根廷 布宜诺斯艾利斯",
+        JNB:"南非 约翰内斯堡",
+        CAI:"埃及 开罗",
+        DXB:"阿联酋 迪拜",
+        AUH:"阿联酋 阿布扎比",
+        KWI:"科威特 科威特城",
+        DOH:"卡塔尔 多哈",
+        BAH:"巴林 麦纳麦",
+        ISB:"巴基斯坦 伊斯兰堡",
+        KHI:"巴基斯坦 卡拉奇",
+        DEL:"印度 新德里",
+        BOM:"印度 孟买",
+        MAA:"印度 金奈",
+        HYD:"印度 海得拉巴",
+        BLR:"印度 班加罗尔",
+        CCU:"印度 加尔各答",
+        KUL:"马来西亚 吉隆坡",
+        TPE:"中国台北",
+        TNA:"中国济南",
+        TSJ:"中国三亚",
+        SZX:"中国深圳",
+        CAN:"中国广州",
+        NNG:"中国南宁",
+        KMG:"中国昆明",
+        HGH:"中国杭州",
+        SHA:"中国上海",
+        PEK:"中国北京",
+        XIY:"中国西安",
+        CKG:"中国重庆",
+        CTU:"中国成都",
+        WUH:"中国武汉",
+        HFE:"中国合肥",
+        NKG:"中国南京",
+        TSN:"中国天津",
+        ZHA:"中国张家界",
+        KHN:"中国南昌",
+        FOC:"中国福州",
+        XMN:"中国厦门",
+        ZUH:"中国珠海",
+        BHY:"中国北海",
+        LZY:"中国洛阳",
+        HET:"中国呼和浩特",
+        URC:"中国乌鲁木齐",
+        NX5:"中国宁夏",
+        LHW:"中国兰州",
+        XNN:"中国西宁",
+        KWE:"中国贵阳",
+        SWA:"中国揭阳"
+    };
+
     const nodeText = document.getElementById("nodeText");
 
+    // 增加超时，超过1.5s直接判定失败，不会无限等待
     async function getCFNode() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 1500);
         try {
-            const res = await fetch("https://workers-playground-curly-art-4a74.2262222222.workers.dev/", {
+            const res = await fetch("/cdn-cgi/trace", {
                 signal: controller.signal
             });
             clearTimeout(timeoutId);
             if (!res.ok) throw new Error();
-            const data = await res.json();
-            // 直接显示原始colo，比如 FRA
-            nodeText.textContent = data.colo;
+            const text = await res.text();
+            const coloMatch = text.match(/colo=(\w+)/);
+            if (!coloMatch) throw new Error();
+            const code = coloMatch[1];
+            const location = coloMap[code] || `未知节点 ${code}`;
+            nodeText.textContent = `${location} [${code}]`;
         } catch (err) {
-            nodeText.textContent = "Error";
+            nodeText.textContent = "节点获取超时";
         }
     }
     getCFNode();
 </script>
 </body>
-</html>
+</html>给我把这个cdn加速显示改成这个。
