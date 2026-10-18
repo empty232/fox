@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Fox 的个人主页 | 记录热爱、沉淀学习、分享折腾日常" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="description" content="Fox 的个人主页，记录博客、笔记与折腾日常" />
+    <meta name="theme-color" content="#6366f1" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <title>Fox · 个人主页</title>
+    <title>Empty · 个人主页</title>
     <style>
         * {
             margin: 0;
@@ -21,260 +21,192 @@
         body {
             min-height: 100vh;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            color: #0f172a;
-            background: #f8fafc;
+            color: #1f2937;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 40%, #fbc2eb 100%);
+            background-attachment: fixed;
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            padding: 72px 20px 96px;
+            padding: 56px 20px 80px;
             position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 背景装饰圆 */
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.55;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::before {
+            width: 320px;
+            height: 320px;
+            background: #c2e9fb;
+            top: -80px;
+            left: -80px;
+        }
+
+        body::after {
+            width: 380px;
+            height: 380px;
+            background: #ffd6f5;
+            bottom: -120px;
+            right: -120px;
         }
 
         .container {
             width: 100%;
-            max-width: 680px;
+            max-width: 640px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* 顶部区域 */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 18px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 32px;
+        .card {
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 28px;
+            padding: 40px 28px;
+            box-shadow:
+                0 20px 50px rgba(31, 41, 55, 0.15),
+                0 8px 20px rgba(31, 41, 55, 0.08);
+            text-align: center;
         }
 
         .avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 24px;
-            background: linear-gradient(135deg, #0f172a, #334155);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 44px;
+            font-size: 56px;
             color: white;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+            box-shadow:
+                0 10px 25px rgba(102, 126, 234, 0.45),
+                0 0 0 6px rgba(255, 255, 255, 0.6);
         }
 
-        .hero-text h1 {
-            font-size: 34px;
+        h1 {
+            font-size: 28px;
             font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
-        .hero-text p {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #475569;
-            max-width: 560px;
-        }
-
-        .meta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 4px;
-        }
-
-        .tag {
-            padding: 5px 12px;
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
             font-size: 12px;
-            color: #334155;
-            background: #eef2f7;
+            color: #4f46e5;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.25);
             border-radius: 999px;
-        }
-
-        /* 区域标题 */
-        .section-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #94a3b8;
-            letter-spacing: 1px;
-            text-transform: uppercase;
             margin-bottom: 14px;
         }
 
-        /* 链接网格 */
+        .desc {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #4b5563;
+            margin-bottom: 28px;
+        }
+
         .links {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            margin-bottom: 48px;
+            gap: 12px;
         }
 
         .link-item {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 22px;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            text-decoration: none;
-            color: #0f172a;
-            transition: transform 0.2s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .link-item:hover {
-            transform: translateY(-4px);
-            border-color: #cbd5e1;
-            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-        }
-
-        .link-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            background: #f1f5f9;
-            display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            gap: 10px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 16px;
+            text-decoration: none;
+            color: #1f2937;
+            font-size:16px;
+            transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .link-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
         }
 
-        .link-item h3 {
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .link-item span.desc {
-            font-size: 13px;
-            color: #64748b;
-            line-height: 1.6;
-        }
-
-        /* 底部 */
         footer {
-            padding-top: 28px;
-            border-top: 1px solid #e2e8f0;
-            font-size: 13px;
-            color: #94a3b8;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
+            margin-top: 32px;
+            font-size:13px;
+            color:#6b7280;
         }
 
         /* 暗黑模式 */
         @media (prefers-color-scheme: dark) {
             body {
-                background: #0b1220;
-                color: #e2e8f0;
+                background: linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);
             }
-
-            .hero {
-                border-bottom-color: #1f2a44;
+            body::before{
+                background:#4f46e5;
             }
-
-            .tag {
-                background: #1f2a44;
-                color: #cbd5e1;
+            body::after{
+                background:#7c3aed;
             }
-
-            .link-item {
-                background: #111a2e;
-                border-color: #1f2a44;
-                color: #e2e8f0;
+            .card{
+                background:rgba(17,24,39,0.45);
+                border:1px solid rgba(255,255,255,0.12);
             }
-
-            .link-item:hover {
-                border-color: #334155;
-                box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+            .link-item{
+                background:rgba(30,41,59,0.65);
+                border:1px solid rgba(255,255,255,0.1);
+                color:#e5e7eb;
             }
-
-            .link-icon {
-                background: #1f2a44;
+            .link-item:hover{
+                background:rgba(51,65,85,0.75);
             }
-
-            .link-item span.desc {
-                color: #94a3b8;
+            .desc{
+                color:#a5b4fc;
             }
-
-            footer {
-                border-top-color: #1f2a44;
-                color: #64748b;
+            .badge{
+                color:#c7d2fe;
+                background:rgba(124,58,237,0.25);
+                border-color:rgba(167,139,250,0.3);
             }
-        }
-
-        /* 移动端单列 */
-        @media (max-width: 520px) {
-            .links {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                align-items: center;
-                text-align: center;
-            }
-
-            .hero-text {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            footer {
-                justify-content: center;
+            footer{
+                color:#94a3b8;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <!-- 顶部介绍 -->
-        <section class="hero">
-            <div class="avatar" aria-label="头像">🦊</div>
-            <div class="hero-text">
-                <h1>Fox</h1>
-                <p>
-                    专注前端开发、静态站点搭建与技术折腾。
-                    在这里记录学习日常、技术笔记与个人项目。
-                </p>
-                <div class="meta-row">
-                    <span class="tag">GitHub Pages</span>
-                    <span class="tag">Cloudflare CDN</span>
-                    <span class="tag">Static Site</span>
-                </div>
+        <div class="card">
+            <div class="avatar">👨‍💻</div>
+            <h1>Empty</h1>
+            <span class="badge">个人主页</span>
+            <p class="desc">爱好网页、折腾服务器与GitHub静态站点</p>
+
+            <div class="links">
+                <a class="link-item" href="/blog" aria-label="前往我的博客">📖 我的博客</a>
+                <a class="link-item" href="/note" aria-label="前往云笔记">📝 云笔记</a>
+                <a class="link-item" href="https://github.com/fox925" target="_blank" rel="noopener noreferrer" aria-label="访问Github">🐙 GitHub</a>
+                <a class="link-item" href="#" aria-label="联系我">💬 联系我</a>
             </div>
-        </section>
-
-        <!-- 链接入口 -->
-        <h2 class="section-title">入口导航</h2>
-        <div class="links">
-            <a class="link-item" href="/blog">
-                <div class="link-icon">📖</div>
-                <h3>技术博客</h3>
-                <span class="desc">记录学习过程与前端实践</span>
-            </a>
-
-            <a class="link-item" href="/note">
-                <div class="link-icon">📝</div>
-                <h3>个人笔记</h3>
-                <span class="desc">整理常用命令、配置与踩坑笔记</span>
-            </a>
-
-            <a class="link-item" href="https://github.com/empty232" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">🐙</div>
-                <h3>GitHub 仓库</h3>
-                <span class="desc">查看我的开源项目与代码作品</span>
-            </a>
-
-            <a class="link-item" href="#">
-                <div class="link-icon">💬</div>
-                <h3>交流联系</h3>
-                <span class="desc">有问题或合作想法，欢迎联系</span>
-            </a>
         </div>
-
         <footer>
-            <span>© 2026 Fox</span>
-            <span>Powered by GitHub Pages & Cloudflare CDN</span>
+            © 2026 Empty | Powered by GitHub Pages
         </footer>
     </div>
 </body>
