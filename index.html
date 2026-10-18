@@ -6,7 +6,7 @@
     <meta name="description" content="Fox 的个人主页，记录博客、笔记与折腾日常" />
     <meta name="theme-color" content="#6366f1" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <title>Empty · 个人主页</title>
+    <title>Fox · 个人主页</title>
     <style>
         * {
             margin: 0;
@@ -133,81 +133,111 @@
             gap: 10px;
             padding: 14px 18px;
             background: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255,255,255,0.7);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 16px;
             text-decoration: none;
             color: #1f2937;
-            font-size:16px;
-            transition: all 0.25s ease;
-            -webkit-tap-highlight-color: transparent;
+            font-size: 15px;
+            font-weight: 500;
+            transition: transform 0.2s ease, background 0.25s ease, box-shadow 0.25s ease;
         }
+
         .link-item:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
             transform: translateY(-3px);
-            background: rgba(255,255,255,0.95);
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.35);
+        }
+
+        .link-item .icon {
+            font-size: 20px;
         }
 
         footer {
             margin-top: 32px;
-            font-size:13px;
-            color:#6b7280;
+            font-size: 13px;
+            color: #6b7280;
         }
 
         /* 暗黑模式 */
         @media (prefers-color-scheme: dark) {
             body {
-                background: linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);
+                color: #f3f4f6;
+                background: linear-gradient(135deg, #1e3c72 0%, #2a5298 40%, #6a11cb 100%);
             }
-            body::before{
-                background:#4f46e5;
+
+            body::before {
+                background: #4f46e5;
             }
-            body::after{
-                background:#7c3aed;
+
+            body::after {
+                background: #ec4899;
             }
-            .card{
-                background:rgba(17,24,39,0.45);
-                border:1px solid rgba(255,255,255,0.12);
+
+            .card {
+                background: rgba(17, 24, 39, 0.55);
+                border-color: rgba(255, 255, 255, 0.12);
+                box-shadow:
+                    0 20px 50px rgba(0, 0, 0, 0.35),
+                    0 8px 20px rgba(0, 0, 0, 0.25);
             }
-            .link-item{
-                background:rgba(30,41,59,0.65);
-                border:1px solid rgba(255,255,255,0.1);
-                color:#e5e7eb;
+
+            .desc {
+                color: #d1d5db;
             }
-            .link-item:hover{
-                background:rgba(51,65,85,0.75);
+
+            .link-item {
+                background: rgba(255, 255, 255, 0.08);
+                border-color: rgba(255, 255, 255, 0.12);
+                color: #f3f4f6;
             }
-            .desc{
-                color:#a5b4fc;
+
+            .link-item:hover {
+                background: linear-gradient(135deg, #818cf8, #c084fc);
+                color: white;
             }
-            .badge{
-                color:#c7d2fe;
-                background:rgba(124,58,237,0.25);
-                border-color:rgba(167,139,250,0.3);
-            }
-            footer{
-                color:#94a3b8;
+
+            footer {
+                color: #9ca3af;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="card">
-            <div class="avatar">👨‍💻</div>
-            <h1>Empty</h1>
-            <span class="badge">个人主页</span>
-            <p class="desc">爱好网页、折腾服务器与GitHub静态站点</p>
+            <div class="avatar" aria-label="头像">🦊</div>
+            <h1>Fox</h1>
+            <span class="badge">GitHub Pages · Static Site</span>
+            <p class="desc">
+                爱好网页、折腾服务器与 GitHub 静态站点。<br />
+                这里放我的博客、笔记和一些小项目入口。
+            </p>
 
             <div class="links">
-                <a class="link-item" href="/blog" aria-label="前往我的博客">📖 我的博客</a>
-                <a class="link-item" href="/note" aria-label="前往云笔记">📝 云笔记</a>
-                <a class="link-item" href="https://github.com/empty232" target="_blank" rel="noopener noreferrer" aria-label="访问Github">🐙 GitHub</a>
-                <a class="link-item" href="#" aria-label="联系我">💬 联系我</a>
+                <a class="link-item" href="/blog">
+                    <span class="icon">📖</span>
+                    <span>我的博客</span>
+                </a>
+                <a class="link-item" href="/note">
+                    <span class="icon">📝</span>
+                    <span>云笔记</span>
+                </a>
+                <a class="link-item" href="https://github.com/fox925" target="_blank" rel="noopener noreferrer">
+                    <span class="icon">🐙</span>
+                    <span>GitHub</span>
+                </a>
+                <a class="link-item" href="#">
+                    <span class="icon">💬</span>
+                    <span>联系我</span>
+                </a>
             </div>
+
+            <footer>
+                © 2026 Fox · Powered by GitHub Pages
+            </footer>
         </div>
-        <footer>
-            © 2026 Empty | Powered by GitHub Pages
-        </footer>
     </div>
 </body>
 </html>
