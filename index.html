@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="正达拍卖 · 团队介绍" />
-    <meta name="theme-color" content="#2c3e50" />
+    <meta name="theme-color" content="#344054" />
     <title>正达拍卖 - 团队介绍</title>
     <style>
         * {
@@ -18,49 +18,43 @@
         body {
             min-height: 100vh;
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-            background-color: #fafafa;
-            color: #333;
+            background-color: #f9fafb;
+            color: #1f2937;
             line-height: 1.75;
         }
         header {
-            background: #2c3e50;
+            background: #344054;
             color: #fff;
+            padding:  32px 20px;
             text-align: center;
-            padding: 34px 20px;
         }
         header h1 {
             font-size: 26px;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 6px;
         }
         header p {
             margin-top: 6px;
             font-size: 13px;
-            color: #bcc8d4;
+            color: #d0d5dd;
             letter-spacing: 2px;
         }
-        .node-tip {
-            text-align: center;
-            font-size: 12px;
-            color: #888;
-            padding:8px 0;
-        }
         .container {
-            max-width: 920px;
-            margin: 42px auto;
-            padding: 0 22px;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
         .intro {
             text-align: center;
             margin-bottom: 40px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb;
         }
         .intro-text {
             font-size: 15px;
-            color: #555;
-            max-width: 720px;
-            margin: 0 auto 20px;
+            color: #4b5563;
+            max-width: 700px;
+            margin: 0 auto  20px;
         }
         .tags {
             display: flex;
@@ -69,67 +63,68 @@
             justify-content: center;
         }
         .tags span {
-            padding: 5px 14px;
-            background: #fff;
-            border: 1px solid #ddd;
+            padding:  5px 14px;
+            background: #ffffff;
+            border: 1px solid #d1d5db;
             font-size: 13px;
-            color: #444;
-            border-radius: 99px;
+            color: #374151;
+            border-radius:  6px;
         }
         .team-wrap {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 26px;
+            gap:  24px;
         }
         .card {
             background: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid #eee;
-            transition: 0.25s ease;
-        }
-        .card:hover {
-            box-shadow: 0 8px 24px rgba(44, 62, 80, 0.08);
-            border-color: #ddd;
+            padding: 28px;
+            border-radius: 8px;
+            box-shadow: 0  1px  3px  0 rgba(0,0,0,0.08);
         }
         .name {
             font-size: 22px;
-            color: #2c3e50;
+            color: #111827;
             font-weight: 600;
         }
         .job {
-            color: #346086;
+            color: #475467;
             font-size: 14px;
             margin: 4px 0 14px;
         }
         .desc {
             font-size: 14px;
-            color: #585858;
-            margin-bottom: 20px;
+            color: #4b5563;
+            margin-bottom:  20px;
         }
         .contact-line {
             font-size: 14px;
-            color: #444;
+            color: #1f2937;
             margin-bottom: 8px;
         }
         .contact-line a {
-            color: #346086;
+            color: #2563eb;
             text-decoration: none;
         }
         .contact-line a:hover {
             text-decoration: underline;
         }
+        .node-tip {
+            text-align: center;
+            font-size: 12px;
+            color: #6b7280;
+            padding:  30px 0 8px;
+        }
         footer {
             text-align: center;
-            margin-top: 60px;
-            padding-top: 22px;
-            border-top: 1px solid #e5e5e5;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
             font-size: 12px;
-            color: #888;
+            color: #6b7280;
         }
         @media(max-width:720px) {
             .team-wrap {
                 grid-template-columns: 1fr;
+                gap:  20px;
             }
             header h1 {
                 font-size: 22px;
@@ -137,48 +132,47 @@
         }
         @media (prefers-color-scheme: dark) {
             body {
-                background: #1a1a1a;
-                color: #ddd;
+                background: #111827;
+                color: #e5e7eb;
             }
             header {
-                background: #1f2d3a;
-            }
-            .node-tip{
-                color:#aaa;
+                background: #1f2937;
             }
             .intro {
-                border-color: #333;
+                border-color: #374151;
             }
             .intro-text {
-                color: #aaa;
+                color: #9ca3af;
             }
             .tags span {
-                background: #272727;
-                border-color: #444;
-                color: #ccc;
+                background: #1f2937;
+                border-color: #4b5563;
+                color: #d1d5db;
             }
             .card {
-                background: #222;
-                border-color: #333;
+                background: #1f2937;
+                box-shadow: 0  1px  3px  0 rgba(0,0,0,0.25);
             }
             .name {
-                color: #e4ecf2;
+                color: #f9fafb;
             }
             .job {
-                color: #79a8d0;
+                color: #a5b4fc;
             }
             .desc {
-                color: #b0b0b0;
+                color: #9ca3af;
             }
             .contact-line {
-                color: #ccc;
+                color: #e5e7eb;
             }
             .contact-line a {
-                color: #79a8d0;
+                color: #60a5fa;
+            }
+            footer, .node-tip {
+                color: #9ca3af;
             }
             footer {
-                border-color: #333;
-                color: #777;
+                border-color: #374151;
             }
         }
     </style>
@@ -188,9 +182,6 @@
     <h1>正达拍卖</h1>
     <p>ZHENGDA AUCTION SERVICE</p>
 </header>
-<div class="node-tip">
-    Cloudflare 加速节点：<span id="colo">加载中...</span>
-</div>
 <div class="container">
     <div class="intro">
         <p class="intro-text">专注工艺品、艺术品、资产拍卖业务，提供藏品征集、鉴定咨询、线上线下拍卖、竞买对接一站式服务。</p>
@@ -216,6 +207,9 @@
             <div class="contact-line">联系电话：138-0000-0002</div>
             <div class="contact-line">咨询微信：<a href="#">ZhengDa_HuLi</a></div>
         </div>
+    </div>
+    <div class="node-tip">
+        Cloudflare 加速节点：<span id="colo">加载中...</span>
     </div>
     <footer>© 2026 正达拍卖 · 仅用于演示展示</footer>
 </div>
@@ -288,7 +282,6 @@ fetch("/cdn-cgi/trace", {
     for (const line of lines) {
         if(line.startsWith("colo=")){
             colo = line.replace("colo=","");
-            break;
         }
     }
     if (colo) {
