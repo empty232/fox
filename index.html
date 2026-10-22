@@ -3,515 +3,257 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="专业律师咨询团队，多人在线法律服务，涵盖民事纠纷、合同纠纷、劳动仲裁、婚姻家事、房产纠纷、债务纠纷等领域" />
-    <meta name="theme-color" content="#1e3a8a" />
+    <meta name="description" content="正达拍卖 · 专业拍卖团队，工艺品拍卖、资产拍卖咨询" />
+    <meta name="theme-color" content="#162b48" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <title>律师咨询团队 - 专业法律服务平台</title>
+    <title>正达拍卖 - 团队介绍</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             min-height: 100vh;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            color: #1f2937;
-            background: linear-gradient(135deg, #eef4ff 0%, #e0ecff 45%, #f3f6ff 100%);
-            background-attachment: fixed;
-            padding: 48px 20px 80px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before,
-        body::after {
-            content: "";
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(90px);
-            opacity: 0.45;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        body::before {
-            width: 380px;
-            height: 380px;
-            background: #93c5fd;
-            top: -120px;
-            left: -120px;
-        }
-
-        body::after {
-            width: 420px;
-            height: 420px;
-            background: #bfdbfe;
-            bottom: -160px;
-            right: -160px;
-        }
-
-        .page {
-            max-width: 960px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* 顶部概述 */
-        .overview {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-radius: 28px;
-            padding: 36px 32px;
-            box-shadow: 0 20px 50px rgba(30, 58, 138, 0.12);
-            text-align: center;
-            margin-bottom: 28px;
-        }
-
-        .team-badge {
-            display: inline-block;
-            padding: 5px 14px;
-            font-size: 12px;
-            color: #1e40af;
-            background: rgba(30, 64, 175, 0.12);
-            border: 1px solid rgba(30, 64, 175, 0.25);
-            border-radius: 999px;
-            margin-bottom: 14px;
-        }
-
-        h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 10px;
-        }
-
-        .overview p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #475569;
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .service-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
-            margin-top: 18px;
-        }
-
-        .service-tags span {
-            padding: 6px 12px;
-            font-size: 13px;
-            color: #1e40af;
-            background: rgba(30, 64, 175, 0.08);
-            border: 1px solid rgba(30, 64, 175, 0.2);
-            border-radius: 999px;
-        }
-
-        /* 律师列表 */
-        .lawyers {
-            display: grid;
-            gap: 20px;
-        }
-
-        .lawyer-card {
-            background: rgba(255, 255, 255, 0.62);
-            border: 1px solid rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: 0 16px 40px rgba(30, 58, 138, 0.1);
-            display: grid;
-            grid-template-columns: 110px 1fr;
-            gap: 24px;
-            align-items: center;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .lawyer-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 24px 60px rgba(30, 58, 138, 0.16);
-        }
-
-        .lawyer-avatar {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: white;
-            box-shadow: 0 10px 24px rgba(30, 64, 175, 0.35);
-        }
-
-        .lawyer-name {
-            font-size: 22px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 4px;
-        }
-
-        .lawyer-title {
-            font-size: 14px;
-            color: #1e40af;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .lawyer-desc {
-            font-size: 14px;
+            background-color: #f7f8fa;
+            color: #333842;
             line-height: 1.7;
-            color: #475569;
-            margin-bottom: 14px;
         }
-
-        .lawyer-contacts {
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        /* 头部 banner */
+        .header-block {
+            border-bottom: 1px solid #e4e7ed;
+            padding-bottom: 32px;
+            margin-bottom: 40px;
+        }
+        .header-block h1 {
+            font-size: 30px;
+            font-weight: 600;
+            color: #162b48;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .header-block .subtitle {
+            font-size: 15px;
+            color: #666e7c;
+            max-width: 720px;
+        }
+        .tags-row {
+            margin-top: 20px;
             display: flex;
-            flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 14px;
-        }
-
-        .lawyer-contacts a {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 14px;
-            font-size: 13px;
-            color: #1e40af;
-            background: rgba(30, 64, 175, 0.08);
-            border: 1px solid rgba(30, 64, 175, 0.22);
-            border-radius: 999px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .lawyer-contacts a:hover {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            color: white;
-            border-color: transparent;
-        }
-
-        .lawyer-specialty {
-            display: flex;
             flex-wrap: wrap;
-            gap: 6px;
         }
-
-        .lawyer-specialty span {
-            font-size: 12px;
-            color: #64748b;
-            background: rgba(148, 163, 184, 0.12);
-            padding: 4px 10px;
-            border-radius: 999px;
+        .tag {
+            font-size: 13px;
+            padding: 4px 12px;
+            border: 1px solid #c8d2e0;
+            color: #405470;
+            border-radius: 2px;
         }
-
-        /* 底部联系横幅 */
-        .contact-banner {
-            margin-top: 28px;
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            border-radius: 24px;
-            padding: 32px;
-            color: white;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(30, 64, 175, 0.3);
+        /* 团队网格 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
         }
-
-        .contact-banner h2 {
+        .member-card {
+            background: #ffffff;
+            border: 1px solid #e4e7ed;
+            border-radius: 6px;
+            padding: 30px;
+            transition: box-shadow 0.25s ease;
+        }
+        .member-card:hover {
+            box-shadow: 0 8px 24px rgba(22, 43, 72, 0.08);
+        }
+        .member-name {
             font-size: 22px;
+            font-weight: 600;
+            color: #162b48;
+        }
+        .member-post {
+            font-size: 14px;
+            color: #2c4b75;
+            margin: 4px 0 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #f0f2f5;
+        }
+        .member-desc {
+            font-size: 14px;
+            color: #586170;
+            margin-bottom: 20px;
+        }
+        .contact-item {
+            display: block;
+            font-size: 14px;
+            color: #444b58;
+            text-decoration: none;
             margin-bottom: 10px;
         }
-
-        .contact-banner p {
-            font-size: 14px;
-            line-height: 1.8;
-            opacity: 0.92;
-            margin-bottom: 18px;
+        .contact-item:hover {
+            color: #162b48;
+            text-decoration: underline;
         }
-
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+        .skill-row {
+            margin-top: 22px;
         }
-
-        .contact-buttons a {
-            padding: 12px 20px;
-            border-radius: 999px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.2s ease;
+        .skill-label {
+            font-size:13px;
+            color:#777f8f;
+            margin-bottom:8px;
+            display:block;
         }
-
-        .contact-buttons .primary {
-            background: white;
-            color: #1e40af;
+        .skill-tags {
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
         }
-
-        .contact-buttons .secondary {
-            background: rgba(255, 255, 255, 0.18);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+        .skill-tag {
+            font-size:12px;
+            color:#505a68;
+            background:#f4f6f9;
+            padding:3px 10px;
+            border-radius:2px;
         }
-
-        .contact-buttons a:hover {
-            transform: translateY(-2px);
+        /* 底部信息 */
+        .footer-info {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top:1px solid #e4e7ed;
+            font-size:13px;
+            color:#777f8f;
         }
-
-        footer {
-            margin-top: 32px;
-            text-align: center;
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        /* 移动端 */
-        @media (max-width: 640px) {
-            .lawyer-card {
+        /* 移动端适配 */
+        @media (max-width:768px){
+            .team-grid{
                 grid-template-columns: 1fr;
-                text-align: center;
             }
-
-            .lawyer-avatar {
-                margin: 0 auto;
+            .container{
+                padding:36px 18px;
             }
-
-            .lawyer-contacts,
-            .lawyer-specialty {
-                justify-content: center;
+            .header-block h1{
+                font-size:24px;
             }
         }
-
-        /* 暗黑模式 */
+        /* 暗色模式（可选，低调不突兀） */
         @media (prefers-color-scheme: dark) {
             body {
-                color: #f3f4f6;
-                background: linear-gradient(135deg, #0b1220 0%, #111c44 45%, #142048 100%);
+                background-color: #121a27;
+                color:#d0d7e3;
             }
-
-            body::before {
-                background: #1e3a8a;
+            .header-block{
+                border-color:#273448;
             }
-
-            body::after {
-                background: #3b82f6;
+            .header-block h1{
+                color:#e6ecf5;
             }
-
-            .overview,
-            .lawyer-card {
-                background: rgba(17, 24, 39, 0.55);
-                border-color: rgba(255, 255, 255, 0.08);
-                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+            .header-block .subtitle{
+                color:#a0acc0;
             }
-
-            h1 {
-                color: #f8fafc;
+            .tag{
+                border-color:#384963;
+                color:#b0c1d9;
             }
-
-            .overview p {
-                color: #cbd5e1;
+            .member-card{
+                background:#192435;
+                border-color:#273448;
             }
-
-            .team-badge {
-                color: #bfdbfe;
-                background: rgba(59, 130, 246, 0.14);
-                border-color: rgba(59, 130, 246, 0.25);
+            .member-name{
+                color:#e6ecf5;
             }
-
-            .service-tags span {
-                color: #bfdbfe;
-                background: rgba(59, 130, 246, 0.12);
-                border-color: rgba(59, 130, 246, 0.22);
+            .member-post{
+                color:#89a5cc;
+                border-color:#242f40;
             }
-
-            .lawyer-name {
-                color: #f8fafc;
+            .member-desc{
+                color:#a0acc0;
             }
-
-            .lawyer-title {
-                color: #93c5fd;
+            .contact-item{
+                color:#b8c4d6;
             }
-
-            .lawyer-desc {
-                color: #cbd5e1;
+            .contact-item:hover{
+                color:#e6ecf5;
             }
-
-            .lawyer-contacts a {
-                color: #93c5fd;
-                background: rgba(59, 130, 246, 0.12);
-                border-color: rgba(59, 130, 246, 0.25);
+            .skill-tag{
+                background:#232f42;
+                color:#b0c1d9;
             }
-
-            .lawyer-contacts a:hover {
-                background: linear-gradient(135deg, #3b82f6, #60a5fa);
-                color: white;
-            }
-
-            .lawyer-specialty span {
-                color: #94a3b8;
-                background: rgba(148, 163, 184, 0.14);
-            }
-
-            .contact-banner {
-                background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            }
-
-            footer {
-                color: #94a3b8;
+            .footer-info{
+                border-color:#273448;
+                color:#8897b0;
             }
         }
     </style>
 </head>
-
 <body>
-    <div class="page">
-
-        <!-- 顶部团队概述 -->
-        <section class="overview">
-            <span class="team-badge">专业律师咨询团队</span>
-            <h1>多人在线法律服务</h1>
-            <p>
-                本团队由多名执业律师组成，专注民事纠纷、合同纠纷、劳动仲裁、婚姻家事、房产纠纷、债务纠纷等领域。
-                可根据案件类型匹配对应律师，提供咨询、分析、方案建议与委托服务。
-            </p>
-            <div class="service-tags">
-                <span>民事纠纷</span>
-                <span>合同纠纷</span>
-                <span>劳动仲裁</span>
-                <span>婚姻家事</span>
-                <span>房产纠纷</span>
-                <span>债务纠纷</span>
-                <span>交通事故</span>
-                <span>知识产权</span>
-            </div>
-        </section>
-
-        <!-- 律师列表 -->
-        <section class="lawyers">
-
-            <!-- 律师 1 -->
-            <div class="lawyer-card">
-                <div class="lawyer-avatar" aria-label="律师头像">👨‍⚖️</div>
-                <div>
-                    <div class="lawyer-name">张律师</div>
-                    <div class="lawyer-title">主任律师 / 民事纠纷负责人</div>
-                    <div class="lawyer-desc">
-                        执业多年，擅长处理复杂民事纠纷、合同纠纷与房产纠纷，注重证据梳理与诉讼策略制定。
-                    </div>
-                    <div class="lawyer-contacts">
-                        <a href="tel:13800000001">📞 138-0000-0001</a>
-                        <a href="#">💼 微信：Lawyer_Zhang</a>
-                        <a href="mailto:zhang@example.com">✉️ zhang@example.com</a>
-                    </div>
-                    <div class="lawyer-specialty">
-                        <span>合同纠纷</span>
-                        <span>房产纠纷</span>
-                        <span>民事侵权</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 律师 2 -->
-            <div class="lawyer-card">
-                <div class="lawyer-avatar" aria-label="律师头像">👩‍⚖️</div>
-                <div>
-                    <div class="lawyer-name">李律师</div>
-                    <div class="lawyer-title">专职律师 / 婚姻家事负责人</div>
-                    <div class="lawyer-desc">
-                        专注婚姻家事领域，处理离婚、财产分割、子女抚养、遗产继承等案件，风格细致严谨。
-                    </div>
-                    <div class="lawyer-contacts">
-                        <a href="tel:13800000002">📞 138-0000-0002</a>
-                        <a href="#">💼 微信：Lawyer_Li</a>
-                        <a href="mailto:li@example.com">✉️ li@example.com</a>
-                    </div>
-                    <div class="lawyer-specialty">
-                        <span>离婚纠纷</span>
-                        <span>遗产继承</span>
-                        <span>子女抚养</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 律师 3 -->
-            <div class="lawyer-card">
-                <div class="lawyer-avatar" aria-label="律师头像">👨‍⚖️</div>
-                <div>
-                    <div class="lawyer-name">王律师</div>
-                    <div class="lawyer-title">专职律师 / 劳动法务负责人</div>
-                    <div class="lawyer-desc">
-                        长期处理劳动争议、工伤赔偿、劳动合同纠纷，熟悉劳动仲裁与法院诉讼流程。
-                    </div>
-                    <div class="lawyer-contacts">
-                        <a href="tel:13800000003">📞 138-0000-0003</a>
-                        <a href="#">💼 微信：Lawyer_Wang</a>
-                        <a href="mailto:wang@example.com">✉️ wang@example.com</a>
-                    </div>
-                    <div class="lawyer-specialty">
-                        <span>劳动仲裁</span>
-                        <span>工伤赔偿</span>
-                        <span>劳动合同</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 律师 4 -->
-            <div class="lawyer-card">
-                <div class="lawyer-avatar" aria-label="律师头像">👩‍⚖️</div>
-                <div>
-                    <div class="lawyer-name">陈律师</div>
-                    <div class="lawyer-title">专职律师 / 债务纠纷负责人</div>
-                    <div class="lawyer-desc">
-                        熟悉民间借贷、欠款追讨、担保纠纷与执行案件，注重快速锁定财产线索与方案落地。
-                    </div>
-                    <div class="lawyer-contacts">
-                        <a href="tel:13800000004">📞 138-0000-0004</a>
-                        <a href="#">💼 微信：Lawyer_Chen</a>
-                        <a href="mailto:chen@example.com">✉️ chen@example.com</a>
-                    </div>
-                    <div class="lawyer-specialty">
-                        <span>债务追讨</span>
-                        <span>民间借贷</span>
-                        <span>担保纠纷</span>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- 底部咨询横幅 -->
-        <section class="contact-banner">
-            <h2>需要法律咨询？</h2>
-            <p>
-                多人团队在线接受咨询，可根据案件类型快速匹配律师。<br />
-                请准备案件基本情况、相关证据与联系方式，方便律师进一步分析。
-            </p>
-            <div class="contact-buttons">
-                <a class="primary" href="tel:13800000000">📞 电话咨询</a>
-                <a class="secondary" href="#">💬 微信咨询</a>
-            </div>
-        </section>
-
-        <footer>
-            © 2026 律师咨询团队 · 专业法律服务平台
-        </footer>
-
+<div class="container">
+    <div class="header-block">
+        <h1>正达拍卖</h1>
+        <div class="subtitle">
+            专业工艺品拍卖服务团队，提供标的征集、鉴定咨询、线上线下拍卖、竞买登记等全流程服务，恪守拍卖行业规范，公开、公平、公正。
+        </div>
+        <div class="tags-row">
+            <span class="tag">工艺品拍卖</span>
+            <span class="tag">标的征集</span>
+            <span class="tag">藏品鉴定咨询</span>
+            <span class="tag">资产拍卖</span>
+        </div>
     </div>
+
+    <div class="team-grid">
+        <!-- 徐玲女士 -->
+        <div class="member-card">
+            <div class="member-name">徐玲</div>
+            <div class="member-post">拍卖师 / 藏品征集负责人</div>
+            <div class="member-desc">
+                长期从事工艺品、艺术品拍卖相关工作，熟悉拍品上拍流程、图录制作以及竞买组织，擅长瓷器、书画类藏品对接与前期咨询。
+            </div>
+            <a class="contact-item" href="tel:13800000001">联系电话：138-0000-0001</a>
+            <a class="contact-item" href="#">微信：ZhengDa_XuLing</a>
+            <div class="skill-row">
+                <span class="skill-label">业务方向</span>
+                <div class="skill-tags">
+                    <span class="skill-tag">艺术品征集</span>
+                    <span class="skill-tag">书画瓷器</span>
+                    <span class="skill-tag">拍卖主持</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 胡莉 -->
+        <div class="member-card">
+            <div class="member-name">胡莉</div>
+            <div class="member-post">业务专员 / 竞买对接</div>
+            <div class="member-desc">
+                负责竞买人登记、资料审核、参拍引导、成交结算与后续手续办理，熟悉拍卖规则，跟进客户全流程咨询服务。
+            </div>
+            <a class="contact-item" href="tel:13800000002">联系电话：138-0000-0002</a>
+            <a class="contact-item" href="#">微信：ZhengDa_HuLi</a>
+            <div class="skill-row">
+                <span class="skill-label">业务方向</span>
+                <div class="skill-tags">
+                    <span class="skill-tag">竞买接待</span>
+                    <span class="skill-tag">资料审核</span>
+                    <span class="skill-tag">成交交割</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 后续再加人，直接复制上面这一段卡片 -->
+    </div>
+
+    <div class="footer-info">
+        © 正达拍卖
+    </div>
+</div>
 </body>
 </html>
