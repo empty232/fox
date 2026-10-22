@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="正达拍卖 · 专业拍卖团队，工艺品拍卖、资产拍卖咨询" />
     <meta name="theme-color" content="#162b48" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <title>正达拍卖 - 团队介绍</title>
     <style>
         * {
@@ -18,189 +17,249 @@
         }
         body {
             min-height: 100vh;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background-color: #f7f8fa;
+            font-family: "Microsoft YaHei", system-ui, sans-serif;
+            background-color: #f5f7fa;
             color: #333842;
-            line-height: 1.7;
+            line-height: 1.8;
         }
+
+        /* 顶部简约导航栏 */
+        .topbar {
+            background-color: #152845;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .topbar .brand {
+            font-size: 20px;
+            color: #ffffff;
+            letter-spacing: 4px;
+            font-weight: 600;
+        }
+        .topbar .en-text {
+            font-size: 12px;
+            color: #a0b4d4;
+            margin-top: 4px;
+            letter-spacing: 2px;
+        }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 24px;
+            padding: 50px 24px;
         }
-        /* 头部 banner */
+
+        /* 头部介绍区域 */
         .header-block {
-            border-bottom: 1px solid #e4e7ed;
-            padding-bottom: 32px;
+            text-align: center;
+            padding-bottom: 36px;
             margin-bottom: 40px;
+            border-bottom: 1px solid #e2e8f0;
         }
         .header-block h1 {
-            font-size: 30px;
+            font-size: 28px;
+            color: #152845;
             font-weight: 600;
-            color: #162b48;
+            margin-bottom: 14px;
             letter-spacing: 2px;
-            margin-bottom: 12px;
         }
         .header-block .subtitle {
             font-size: 15px;
-            color: #666e7c;
-            max-width: 720px;
+            color: #64748b;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .tags-row {
-            margin-top: 20px;
+            margin-top: 24px;
             display: flex;
-            gap: 10px;
+            justify-content: center;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .tag {
             font-size: 13px;
-            padding: 4px 12px;
-            border: 1px solid #c8d2e0;
-            color: #405470;
-            border-radius: 2px;
+            padding: 6px 16px;
+            background: #edf2f9;
+            color: #364b6b;
+            border-radius: 30px;
+            border: none;
         }
-        /* 团队网格 */
+
+        /* 团队卡片网格布局 */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
         }
+
+        /* 全新商务团队卡片 */
         .member-card {
             background: #ffffff;
-            border: 1px solid #e4e7ed;
-            border-radius: 6px;
-            padding: 30px;
-            transition: box-shadow 0.25s ease;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(21, 40, 69, 0.06);
+            transition: all 0.3s ease;
         }
         .member-card:hover {
-            box-shadow: 0 8px 24px rgba(22, 43, 72, 0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(21, 40, 69, 0.12);
         }
+
         .member-name {
             font-size: 22px;
             font-weight: 600;
-            color: #162b48;
+            color: #152845;
         }
         .member-post {
             font-size: 14px;
-            color: #2c4b75;
-            margin: 4px 0 16px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid #f0f2f5;
+            color: #2f528b;
+            margin: 6px 0 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f1f5f9;
         }
         .member-desc {
             font-size: 14px;
-            color: #586170;
-            margin-bottom: 20px;
+            color: #59677e;
+            margin-bottom: 22px;
         }
+
+        /* 联系方式样式优化 */
         .contact-item {
             display: block;
             font-size: 14px;
-            color: #444b58;
+            color: #475569;
             text-decoration: none;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            padding-left: 4px;
+            transition: color 0.2s ease;
         }
         .contact-item:hover {
-            color: #162b48;
-            text-decoration: underline;
+            color: #152845;
         }
+
+        /* 普通文本样式（无链接） */
+        .contact-text {
+            display: block;
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 12px;
+            padding-left: 4px;
+        }
+
+        /* 业务标签区域 */
         .skill-row {
-            margin-top: 22px;
+            margin-top: 26px;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
         }
         .skill-label {
-            font-size:13px;
-            color:#777f8f;
-            margin-bottom:8px;
-            display:block;
+            font-size: 13px;
+            color: #718096;
+            margin-bottom: 10px;
+            display: block;
         }
         .skill-tags {
-            display:flex;
-            flex-wrap:wrap;
-            gap:8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
         .skill-tag {
-            font-size:12px;
-            color:#505a68;
-            background:#f4f6f9;
-            padding:3px 10px;
-            border-radius:2px;
+            font-size: 12px;
+            color: #4a5568;
+            background: #f7f8fa;
+            padding: 4px 12px;
+            border-radius: 4px;
         }
-        /* 底部信息 改为居中 */
+
+        /* 底部居中版权 */
         .footer-info {
-            margin-top: 60px;
+            margin-top: 70px;
             padding-top: 30px;
-            border-top:1px solid #e4e7ed;
-            font-size:13px;
-            color:#777f8f;
+            border-top: 1px solid #e2e8f0;
+            font-size: 13px;
+            color: #718096;
             text-align: center;
         }
+
         /* 移动端适配 */
-        @media (max-width:768px){
-            .team-grid{
+        @media (max-width: 768px) {
+            .team-grid {
                 grid-template-columns: 1fr;
             }
-            .container{
-                padding:36px 18px;
+            .container {
+                padding: 30px 18px;
             }
-            .header-block h1{
-                font-size:24px;
+            .header-block h1 {
+                font-size: 24px;
             }
         }
-        /* 暗色模式（可选，低调不突兀） */
+
+        /* 暗色模式适配 */
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #121a27;
-                color:#d0d7e3;
+                background-color: #101a29;
+                color: #d1d9e6;
             }
-            .header-block{
-                border-color:#273448;
+            .topbar {
+                background-color: #0b1422;
             }
-            .header-block h1{
-                color:#e6ecf5;
+            .header-block {
+                border-color: #233247;
             }
-            .header-block .subtitle{
-                color:#a0acc0;
+            .header-block h1 {
+                color: #e6edf7;
             }
-            .tag{
-                border-color:#384963;
-                color:#b0c1d9;
+            .header-block .subtitle {
+                color: #94a3b8;
             }
-            .member-card{
-                background:#192435;
-                border-color:#273448;
+            .tag {
+                background: #1e2c40;
+                color: #b0c4e2;
             }
-            .member-name{
-                color:#e6ecf5;
+            .member-card {
+                background: #172436;
             }
-            .member-post{
-                color:#89a5cc;
-                border-color:#242f40;
+            .member-name {
+                color: #e6edf7;
             }
-            .member-desc{
-                color:#a0acc0;
+            .member-post {
+                color: #82a3d8;
+                border-color: #233247;
             }
-            .contact-item{
-                color:#b8c4d6;
+            .member-desc {
+                color: #94a3b8;
             }
-            .contact-item:hover{
-                color:#e6ecf5;
+            .contact-item {
+                color: #b0bcca;
             }
-            .skill-tag{
-                background:#232f42;
-                color:#b0c1d9;
+            .contact-text {
+                color: #b0bcca;
             }
-            .footer-info{
-                border-color:#273448;
-                color:#8897b0;
+            .skill-row {
+                border-color: #233247;
+            }
+            .skill-tag {
+                background: #1e2c40;
+                color: #b0c4e2;
+            }
+            .footer-info {
+                border-color: #233247;
+                color: #8194b1;
             }
         }
     </style>
 </head>
 <body>
+    <!-- 顶部品牌栏 -->
+    <div class="topbar">
+        <div class="brand">正达拍卖</div>
+        <div class="en-text">ZHENGDA AUCTION SERVICE</div>
+    </div>
+
 <div class="container">
     <div class="header-block">
-        <h1>正达拍卖</h1>
+        <h1>专业拍卖服务团队</h1>
         <div class="subtitle">
-            专业工艺品拍卖服务团队，提供标的征集、鉴定咨询、线上线下拍卖、竞买登记等全流程服务，恪守拍卖行业规范，公开、公平、公正。
+            专注工艺品、艺术品、各类资产拍卖服务，提供标的征集、藏品咨询、线上线下拍卖、竞买对接等一站式服务，专业高效，服务贴心。
         </div>
         <div class="tags-row">
             <span class="tag">工艺品拍卖</span>
@@ -211,50 +270,49 @@
     </div>
 
     <div class="team-grid">
-        <!-- 徐玲女士 -->
+        <!-- 徐玲 -->
         <div class="member-card">
             <div class="member-name">徐玲</div>
             <div class="member-post">拍卖师 / 藏品征集负责人</div>
             <div class="member-desc">
-                长期从事工艺品、艺术品拍卖相关工作，熟悉拍品上拍流程、图录制作以及竞买组织，擅长瓷器、书画类藏品对接与前期咨询。
+                深耕艺术品、工艺品拍卖行业多年，精通各类藏品征集、鉴定咨询、拍卖图录制作、现场拍卖统筹，擅长书画、瓷器等传统艺术品对接服务。
             </div>
-            <a class="contact-item" href="tel:13800000001">联系电话：138-0000-0001</a>
-            <a class="contact-item" href="#">微信：ZhengDa_XuLing</a>
+            <span class="contact-text">联系电话：138-0000-0001</span>
+            <a class="contact-item" href="#">咨询微信：ZhengDa_XuLing</a>
             <div class="skill-row">
-                <span class="skill-label">业务方向</span>
+                <span class="skill-label">擅长业务</span>
                 <div class="skill-tags">
                     <span class="skill-tag">艺术品征集</span>
-                    <span class="skill-tag">书画瓷器</span>
-                    <span class="skill-tag">拍卖主持</span>
+                    <span class="skill-tag">书画瓷器鉴定</span>
+                    <span class="skill-tag">拍卖主持统筹</span>
                 </div>
             </div>
         </div>
 
-        <!-- 胡莉 -->
+        <!-- 胡丽 -->
         <div class="member-card">
-            <div class="member-name">胡莉</div>
-            <div class="member-post">业务专员 / 竞买对接</div>
+            <div class="member-name">胡丽</div>
+            <div class="member-post">业务专员 / 竞买对接顾问</div>
             <div class="member-desc">
-                负责竞买人登记、资料审核、参拍引导、成交结算与后续手续办理，熟悉拍卖规则，跟进客户全流程咨询服务。
+                专注竞买客户全流程服务，熟悉拍卖报名、资料审核、参拍指导、成交结算、售后手续办理，一对一跟进客户咨询与对接工作。
             </div>
-            <a class="contact-item" href="tel:13800000002">联系电话：138-0000-0002</a>
-            <a class="contact-item" href="#">微信：ZhengDa_HuLi</a>
+            <span class="contact-text">联系电话：138-0000-0002</span>
+            <a class="contact-item" href="#">咨询微信：ZhengDa_HuLi</a>
             <div class="skill-row">
-                <span class="skill-label">业务方向</span>
+                <span class="skill-label">擅长业务</span>
                 <div class="skill-tags">
-                    <span class="skill-tag">竞买接待</span>
-                    <span class="skill-tag">资料审核</span>
-                    <span class="skill-tag">成交交割</span>
+                    <span class="skill-tag">竞买接待指导</span>
+                    <span class="skill-tag">资料审核登记</span>
+                    <span class="skill-tag">成交交割售后</span>
                 </div>
             </div>
         </div>
-
-        <!-- 后续再加人，直接复制上面这一段卡片 -->
     </div>
 
     <div class="footer-info">
-        © 正达拍卖 演示站点
+        © 2026 正达拍卖 · 仅用于演示展示
     </div>
 </div>
+
 </body>
 </html>
