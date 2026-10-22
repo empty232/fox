@@ -1,2 +1,2 @@
 # fox
-Hacker Fox
+static page
