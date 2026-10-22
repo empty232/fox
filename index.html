@@ -18,9 +18,9 @@
         body {
             min-height: 100vh;
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-            background-color: #f9fafb;
-            color: #1f2937;
-            line-height: 1.75;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.7;
             animation: pageFadeIn 0.6s ease-out;
         }
         @keyframes pageFadeIn {
@@ -28,11 +28,11 @@
             to { opacity: 1; }
         }
 
+        /* 顶部横幅 */
         .site-cover {
             position: relative;
             width: 100%;
-            height: 420px;
-            background-color: #1e293b;
+            height: 320px;
             overflow: hidden;
         }
         .site-cover .cover-bg {
@@ -40,18 +40,18 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            /* 团队商务办公会议室封面图 */
+            /* 新版专业团队办公封面 */
             background-image: url("https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.40;
+            opacity: 0.42;
             z-index: 0;
         }
         .site-cover .cover-mask {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(30,41,59,0.70) 0%, rgba(57,72,91,0.54) 100%);
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.45));
             z-index: 1;
         }
         .site-cover .cover-content {
@@ -64,128 +64,155 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #ffffff;
-            padding: 20px;
+            color: #fff;
+            padding: 0 24px;
         }
         .site-cover h1 {
-            font-size: 44px;
-            font-weight: 600;
-            letter-spacing: 12px;
-            margin-bottom: 14px;
+            font-size: 40px;
+            font-weight: 500;
+            letter-spacing: 10px;
+            margin-bottom: 8px;
         }
         .site-cover .cover-sub {
-            font-size: 16px;
-            color: #cbd5e1;
-            letter-spacing: 4px;
-            margin-bottom: 24px;
+            font-size: 15px;
+            color: #ddd;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
         }
         .site-cover .cover-desc {
-            max-width: 720px;
+            max-width: 680px;
             font-size: 15px;
-            color: #e2e8f0;
-            line-height: 1.9;
+            color: #eee;
         }
 
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 960px;
+            margin: 52px auto;
+            padding: 0 24px;
         }
-        .intro {
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: #222;
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 16px;
+            position: relative;
         }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 48px;
+            height: 2px;
+            background-color: #b89b5c;
+            margin: 8px auto 0;
+        }
+
+        .about {
+            text-align: center;
+            margin-bottom: 44px;
+        }
+        .about p {
+            max-width: 740px;
+            margin: 0 auto;
+            color: #555;
+            font-size: 15px;
+        }
+
         .tags {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
             justify-content: center;
+            margin-bottom: 48px;
         }
         .tags span {
-            padding: 5px 14px;
-            background: #ffffff;
-            border: 1px solid #d1d5db;
-            font-size: 13px;
-            color: #374151;
-            border-radius: 8px;
-            transition: all 0.22s ease;
+            padding: 6px 16px;
+            border: 1px solid #b89b5c;
+            color: #806838;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: 0.2s;
         }
         .tags span:hover {
-            background-color: #eff6ff;
-            border-color: #bfdbfe;
+            background-color: #b89b5c;
+            color: #fff;
         }
+
+        /* 团队卡片 */
         .team-wrap {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
         }
         .card {
-            background: #ffffff;
-            padding: 28px;
-            border-radius: 14px;
-            box-shadow: 0 2px 10px 0 rgba(0,0,0,0.06);
-            transition: transform 0.22s ease, box-shadow 0.22s ease;
+            display: flex;
+            gap: 26px;
+            align-items: center;
+            padding: 26px;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            transition: 0.2s;
         }
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 18px 0 rgba(0,0,0,0.08);
+            border-color: #b89b5c;
         }
         .avatar {
-            width: 100px;
-            height: 100px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 16px;
-            border: 2px solid #e5e7eb;
+            flex-shrink: 0;
+        }
+        .card-body {
+            flex: 1;
         }
         .name {
-            font-size: 23px;
-            color: #111827;
-            font-weight: 700;
+            font-size: 22px;
+            color: #222;
+            font-weight: 600;
         }
         .job {
-            color: #5b6778;
+            color: #b89b5c;
             font-size: 14px;
-            margin: 4px 0 14px;
+            margin: 4px 0 12px;
         }
         .desc {
             font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 20px;
+            color: #555;
+            margin-bottom: 14px;
         }
         .contact-line {
             font-size: 14px;
-            color: #1f2937;
-            margin-bottom: 8px;
+            color: #444;
+            margin-bottom: 6px;
         }
         .contact-line a {
-            color: #2563eb;
+            color: #b89b5c;
             text-decoration: none;
-            transition: color 0.2s;
         }
         .contact-line a:hover {
-            color: #1d4ed8;
             text-decoration: underline;
         }
+
         .node-tip {
             text-align: center;
-            font-size: 12px;
-            color: #6b7280;
-            padding: 34px 0 8px;
+            font-size: 13px;
+            color: #777;
+            padding: 44px 0 10px;
         }
         footer {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #e5e7eb;
-            font-size: 12px;
-            color: #6b7280;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+            color: #777;
         }
 
-        @media(max-width: 720px) {
+        /* 移动端适配 */
+        @media(max-width: 640px) {
             .site-cover {
-                height: 320px;
+                height: 260px;
             }
             .site-cover h1 {
                 font-size: 28px;
@@ -194,34 +221,34 @@
             .site-cover .cover-sub {
                 font-size: 14px;
             }
-            .team-wrap {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .container {
+                margin-top: 36px;
             }
         }
 
+        /* 暗色模式 */
         @media (prefers-color-scheme: dark) {
             body {
-                background: #111827;
-                color: #e5e7eb;
+                background: #121212;
+                color: #ddd;
             }
-            .site-cover {
-                background-color: #0f172a;
+            .section-title {
+                color: #eee;
             }
-            .site-cover .cover-bg {
-                opacity: 0.25;
-            }
-            .intro {
-                border-color: #374151;
+            .about p {
+                color: #aaa;
             }
             .tags span {
-                background: #1f2937;
-                border-color: #4b5563;
-                color: #d1d5db;
+                border-color: #b89b5c;
+                color: #d6bc88;
             }
             .tags span:hover {
-                background-color: #253348;
-                border-color: #52698a;
+                background-color: #b89b5c;
+                color: #111;
             }
             .card {
                 background: #1f2937;
@@ -275,32 +302,40 @@
 </section>
 
 <div class="container">
-    <div class="intro">
-        <div class="tags">
-            <span>工艺品拍卖</span>
-            <span>标的征集</span>
-            <span>藏品鉴定咨询</span>
-            <span>资产拍卖</span>
-        </div>
+    <div class="about">
+        <div class="section-title">关于我们</div>
+        <p>臻达拍卖专注工艺品、艺术品与资产拍卖业务，秉持诚信、严谨的原则，为藏家与竞买人搭建可靠的交易渠道，提供藏品征集、鉴定咨询、拍卖全流程配套服务。</p>
     </div>
 
+    <div class="tags">
+        <span>工艺品拍卖</span>
+        <span>标的征集</span>
+        <span>藏品鉴定咨询</span>
+        <span>资产拍卖</span>
+    </div>
+
+    <div class="section-title">核心团队</div>
     <div class="team-wrap">
         <div class="card">
             <img class="avatar" src="https://picsum.photos/id/1027/400/400" alt="徐琳">
-            <div class="name">徐琳</div>
-            <div class="job">拍卖师 / 藏品征集负责人</div>
-            <div class="desc">深耕艺术品、工艺品拍卖行业多年，精通藏品征集、鉴定咨询、拍卖图录制作、现场拍卖统筹，擅长书画、瓷器等传统艺术品对接服务。</div>
-            <div class="contact-line">联系电话：138-0000-0001</div>
-            <div class="contact-line">咨询微信：<a href="#">ZhenDa_XuLin</a></div>
+            <div class="card-body">
+                <div class="name">徐琳</div>
+                <div class="job">拍卖师 / 藏品征集负责人</div>
+                <div class="desc">深耕艺术品、工艺品拍卖行业多年，精通藏品征集、鉴定咨询、拍卖图录制作、现场拍卖统筹，擅长书画、瓷器等传统艺术品对接服务。</div>
+                <div class="contact-line">联系电话：138-0000-0001</div>
+                <div class="contact-line">咨询微信：<a href="#">ZhenDa_XuLin</a></div>
+            </div>
         </div>
 
         <div class="card">
             <img class="avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="胡黎">
-            <div class="name">胡黎</div>
-            <div class="job">业务专员 / 竞买对接顾问</div>
-            <div class="desc">专注竞买客户全流程服务，熟悉拍卖报名、资料审核、参拍指导、成交结算、售后手续办理，一对一跟进客户咨询与对接工作。</div>
-            <div class="contact-line">联系电话：138-0000-0002</div>
-            <div class="contact-line">咨询微信：<a href="#">ZhenDa_HuLi</a></div>
+            <div class="card-body">
+                <div class="name">胡黎</div>
+                <div class="job">业务专员 / 竞买对接顾问</div>
+                <div class="desc">专注竞买客户全流程服务，熟悉拍卖报名、资料审核、参拍指导、成交结算、售后手续办理，一对一跟进客户咨询与对接工作。</div>
+                <div class="contact-line">联系电话：138-0000-0002</div>
+                <div class="contact-line">咨询微信：<a href="#">ZhenDa_HuLi</a></div>
+            </div>
         </div>
     </div>
 
