@@ -27,14 +27,15 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        /* 修复版入场动画，去掉Y位移，规避webkit点击热区bug */
         .reveal{
             opacity:0;
-            transform: translateY(18px);
+            transform: scale(0.97);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .reveal.active{
             opacity:1;
-            transform: translateY(0);
+            transform: scale(1);
         }
 
         /* 顶部横幅 */
@@ -165,9 +166,9 @@
             text-align:center;
             transition:0.3s;
         }
+        /* hover 移除 translateY，只改边框阴影 */
         .service-item:hover{
             border-color:#9b7b3f;
-            transform: translateY(-5px);
             box-shadow: 0 10px 24px rgba(155,123,63,0.09);
         }
         .service-item h4{
@@ -197,13 +198,7 @@
         }
         .lot-card:hover{
             border-color:#9b7b3f;
-            transform: translateY(-4px);
             box-shadow:0 10px 24px rgba(155,123,63,0.09);
-        }
-        .lot-card h4{
-            color:#222;
-            margin-bottom:8px;
-            font-weight:500;
         }
         .lot-tag{
             display:inline-block;
@@ -213,6 +208,11 @@
             padding:2px 8px;
             border-radius:4px;
             margin-bottom:12px;
+        }
+        .lot-card h4{
+            color:#222;
+            margin-bottom:8px;
+            font-weight:500;
         }
         .lot-card p{
             font-size:14px;
