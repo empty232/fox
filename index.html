@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="臻达拍卖 - 专业艺术品、工艺品、资产拍卖服务平台" />
-    <meta name="theme-color" content="#39485b" />
+    <meta name="theme-color" content="#9b7b3f" />
     <title>臻达拍卖</title>
     <style>
         * {
@@ -18,9 +18,9 @@
         body {
             min-height: 100vh;
             font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
-            background-color: #ffffff;
+            background-color: #fdfdfb;
             color: #333333;
-            line-height: 1.7;
+            line-height: 1.75;
             animation: pageFadeIn 0.6s ease-out;
         }
         @keyframes pageFadeIn {
@@ -32,7 +32,7 @@
         .site-cover {
             position: relative;
             width: 100%;
-            height: 320px;
+            height: 360px;
             overflow: hidden;
         }
         .site-cover .cover-bg {
@@ -40,18 +40,17 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            /* 新版专业团队办公封面 */
             background-image: url("https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.42;
+            opacity: 0.35;
             z-index: 0;
         }
         .site-cover .cover-mask {
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.45));
+            background: linear-gradient(180deg, rgba(20,18,15,0.65), rgba(20,18,15,0.5));
             z-index: 1;
         }
         .site-cover .cover-content {
@@ -68,127 +67,164 @@
             padding: 0 24px;
         }
         .site-cover h1 {
-            font-size: 40px;
+            font-size: 44px;
             font-weight: 500;
-            letter-spacing: 10px;
-            margin-bottom: 8px;
+            letter-spacing: 12px;
+            margin-bottom: 10px;
         }
         .site-cover .cover-sub {
-            font-size: 15px;
-            color: #ddd;
-            letter-spacing: 3px;
-            margin-bottom: 16px;
+            font-size: 16px;
+            color: #d4c8b4;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
         }
         .site-cover .cover-desc {
-            max-width: 680px;
-            font-size: 15px;
-            color: #eee;
+            max-width: 720px;
+            font-size: 16px;
+            color: #f0ece4;
         }
 
         .container {
-            max-width: 960px;
-            margin: 52px auto;
+            max-width: 1000px;
+            margin: 60px auto;
             padding: 0 24px;
         }
 
+        .section-wrap {
+            margin-bottom: 64px;
+        }
         .section-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 500;
             color: #222;
             text-align: center;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             position: relative;
         }
         .section-title::after {
             content: "";
             display: block;
-            width: 48px;
+            width: 56px;
             height: 2px;
-            background-color: #b89b5c;
-            margin: 8px auto 0;
+            background-color: #9b7b3f;
+            margin: 10px auto 0;
         }
 
         .about {
             text-align: center;
-            margin-bottom: 44px;
         }
         .about p {
-            max-width: 740px;
+            max-width: 780px;
             margin: 0 auto;
             color: #555;
-            font-size: 15px;
+            font-size: 15.5px;
         }
 
         .tags {
             display: flex;
-            gap: 12px;
+            gap: 14px;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 48px;
         }
         .tags span {
-            padding: 6px 16px;
-            border: 1px solid #b89b5c;
-            color: #806838;
+            padding: 8px 20px;
+            border: 1px solid #9b7b3f;
+            color: #70592b;
             font-size: 14px;
-            border-radius: 4px;
-            transition: 0.2s;
+            border-radius: 999px;
+            transition: 0.3s ease;
+            background: transparent;
         }
         .tags span:hover {
-            background-color: #b89b5c;
+            background-color: #9b7b3f;
             color: #fff;
+        }
+
+        /* 业务范围 */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+            gap: 20px;
+            margin-top:24px;
+        }
+        .service-item {
+            padding:24px 18px;
+            background:#fff;
+            border:1px solid #eee;
+            border-radius:12px;
+            text-align:center;
+            transition:0.3s;
+        }
+        .service-item:hover{
+            border-color:#9b7b3f;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(155,123,63,0.08);
+        }
+        .service-item h4{
+            color:#222;
+            margin-bottom:8px;
+            font-weight:500;
+        }
+        .service-item p{
+            font-size:14px;
+            color:#666;
         }
 
         /* 团队卡片 */
         .team-wrap {
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 32px;
+            margin-top:24px;
         }
         .card {
             display: flex;
-            gap: 26px;
+            gap: 30px;
             align-items: center;
-            padding: 26px;
+            padding: 30px;
+            background:#fff;
             border: 1px solid #eee;
-            border-radius: 12px;
-            transition: 0.2s;
+            border-radius: 16px;
+            transition: 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
         }
         .card:hover {
-            border-color: #b89b5c;
+            border-color: #9b7b3f;
+            box-shadow: 0 10px 28px rgba(155,123,63,0.1);
         }
         .avatar {
-            width: 96px;
-            height: 96px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
+            border:2px solid #f3ede2;
         }
         .card-body {
             flex: 1;
         }
         .name {
-            font-size: 22px;
+            font-size: 24px;
             color: #222;
             font-weight: 600;
         }
         .job {
-            color: #b89b5c;
-            font-size: 14px;
-            margin: 4px 0 12px;
+            color: #9b7b3f;
+            font-size: 14.5px;
+            margin: 6px 0 14px;
         }
         .desc {
-            font-size: 14px;
+            font-size: 14.5px;
             color: #555;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
         .contact-line {
-            font-size: 14px;
+            font-size: 14.5px;
             color: #444;
-            margin-bottom: 6px;
+            margin-bottom: 7px;
         }
         .contact-line a {
-            color: #b89b5c;
+            color: #9b7b3f;
             text-decoration: none;
         }
         .contact-line a:hover {
@@ -198,25 +234,25 @@
         .node-tip {
             text-align: center;
             font-size: 13px;
-            color: #777;
-            padding: 44px 0 10px;
+            color: #888;
+            padding: 30px 0 10px;
         }
         footer {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+            padding-top: 24px;
+            border-top: 1px solid #e9e6df;
             font-size: 13px;
-            color: #777;
+            color: #888;
         }
 
         /* 移动端适配 */
         @media(max-width: 640px) {
             .site-cover {
-                height: 260px;
+                height: 280px;
             }
             .site-cover h1 {
-                font-size: 28px;
-                letter-spacing: 6px;
+                font-size: 30px;
+                letter-spacing: 7px;
             }
             .site-cover .cover-sub {
                 font-size: 14px;
@@ -226,14 +262,17 @@
                 text-align: center;
             }
             .container {
-                margin-top: 36px;
+                margin-top: 40px;
+            }
+            .service-grid{
+                grid-template-columns: 1fr;
             }
         }
 
         /* 暗色模式 */
         @media (prefers-color-scheme: dark) {
             body {
-                background: #121212;
+                background: #141414;
                 color: #ddd;
             }
             .section-title {
@@ -243,28 +282,38 @@
                 color: #aaa;
             }
             .tags span {
-                border-color: #b89b5c;
-                color: #d6bc88;
+                border-color: #9b7b3f;
+                color: #d4b987;
             }
             .tags span:hover {
-                background-color: #b89b5c;
+                background-color: #9b7b3f;
                 color: #111;
             }
+            .service-item{
+                background:#1f1f1f;
+                border-color:#2d2d2d;
+            }
+            .service-item h4{
+                color:#eee;
+            }
+            .service-item p{
+                color:#aaa;
+            }
             .card {
-                background: #1f2937;
-                box-shadow: 0 2px 10px 0 rgba(0,0,0,0.20);
+                background: #1f1f1f;
+                border-color:#2d2d2d;
             }
             .card:hover {
-                box-shadow: 0 5px 18px 0 rgba(0,0,0,0.26);
+                box-shadow: 0 10px 28px rgba(155,123,63,0.12);
             }
             .avatar {
-                border-color: #4b5563;
+                border-color: #333;
             }
             .name {
                 color: #f9fafb;
             }
             .job {
-                color: #a1b2cb;
+                color: #c9a86c;
             }
             .desc {
                 color: #9ca3af;
@@ -273,16 +322,16 @@
                 color: #e5e7eb;
             }
             .contact-line a {
-                color: #60a5fa;
+                color: #c9a86c;
             }
             .contact-line a:hover {
-                color: #93c5fd;
+                color: #ddbb84;
             }
             footer, .node-tip {
                 color: #9ca3af;
             }
             footer {
-                border-color: #374151;
+                border-color: #2d2d2d;
             }
         }
     </style>
@@ -302,39 +351,56 @@
 </section>
 
 <div class="container">
-    <div class="about">
+    <div class="section-wrap about">
         <div class="section-title">关于我们</div>
         <p>臻达拍卖专注工艺品、艺术品与资产拍卖业务，秉持诚信、严谨的原则，为藏家与竞买人搭建可靠的交易渠道，提供藏品征集、鉴定咨询、拍卖全流程配套服务。</p>
     </div>
 
-    <div class="tags">
-        <span>工艺品拍卖</span>
-        <span>标的征集</span>
-        <span>藏品鉴定咨询</span>
-        <span>资产拍卖</span>
-    </div>
-
-    <div class="section-title">核心团队</div>
-    <div class="team-wrap">
-        <div class="card">
-            <img class="avatar" src="https://picsum.photos/id/1027/400/400" alt="徐琳">
-            <div class="card-body">
-                <div class="name">徐凝</div>
-                <div class="job">拍卖师 / 藏品征集负责人</div>
-                <div class="desc">深耕艺术品、工艺品拍卖行业多年，精通藏品征集、鉴定咨询、拍卖图录制作、现场拍卖统筹，擅长书画、瓷器等传统艺术品对接服务。</div>
-                <div class="contact-line">联系电话：138-0000-0001</div>
-                <div class="contact-line">咨询微信：<a href="#">ZhenDa_XuNing</a></div>
+    <div class="section-wrap">
+        <div class="section-title">业务范围</div>
+        <div class="service-grid">
+            <div class="service-item">
+                <h4>工艺品拍卖</h4>
+                <p>木雕、玉石、琉璃、手作藏品竞拍</p>
+            </div>
+            <div class="service-item">
+                <h4>艺术品拍卖</h4>
+                <p>书画、瓷器、文玩艺术品专场</p>
+            </div>
+            <div class="service-item">
+                <h4>标的征集</h4>
+                <p>藏品评估、上拍资料协助整理</p>
+            </div>
+            <div class="service-item">
+                <h4>资产拍卖</h4>
+                <p>动产、不动产、物资资产拍卖服务</p>
             </div>
         </div>
+    </div>
 
-        <div class="card">
-            <img class="avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="胡黎">
-            <div class="card-body">
-                <div class="name">胡黎</div>
-                <div class="job">业务专员 / 竞买对接顾问</div>
-                <div class="desc">专注竞买客户全流程服务，熟悉拍卖报名、资料审核、参拍指导、成交结算、售后手续办理，一对一跟进客户咨询与对接工作。</div>
-                <div class="contact-line">联系电话：138-0000-0002</div>
-                <div class="contact-line">咨询微信：<a href="#">ZhenDa_HuLi</a></div>
+    <div class="section-wrap">
+        <div class="section-title">核心团队</div>
+        <div class="team-wrap">
+            <div class="card">
+                <img class="avatar" src="https://picsum.photos/id/1027/400/400" alt="徐琳">
+                <div class="card-body">
+                    <div class="name">徐凝</div>
+                    <div class="job">拍卖师 / 藏品征集负责人</div>
+                    <div class="desc">深耕艺术品、工艺品拍卖行业多年，精通藏品征集、鉴定咨询、拍卖图录制作、现场拍卖统筹，擅长书画、瓷器等传统艺术品对接服务。</div>
+                    <div class="contact-line">联系电话：138-0000-0001</div>
+                    <div class="contact-line">咨询微信：<a href="#">ZhenDa_XuNing</a></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img class="avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="胡黎">
+                <div class="card-body">
+                    <div class="name">胡黎</div>
+                    <div class="job">业务专员 / 竞买对接顾问</div>
+                    <div class="desc">专注竞买客户全流程服务，熟悉拍卖报名、资料审核、参拍指导、成交结算、售后手续办理，一对一跟进客户咨询与对接工作。</div>
+                    <div class="contact-line">联系电话：138-0000-0002</div>
+                    <div class="contact-line">咨询微信：<a href="#">ZhenDa_HuLi</a></div>
+                </div>
             </div>
         </div>
     </div>
@@ -392,6 +458,7 @@ const coloMap = {
     DXB: "阿联酋 迪拜",
     EWR: "美国 纽瓦克",
     FCO: "意大利 罗马",
+    FRA: "德国 法兰克福",
     FUK: "日本 福冈",
     GDL: "墨西哥 瓜达拉哈拉",
     GIG: "巴西 里约热内卢",
@@ -504,8 +571,6 @@ fetch("/cdn-cgi/trace", {
 .catch(()=>{
     el.textContent = "获取失败";
 })
-
 </script>
-
 </body>
 </html>
