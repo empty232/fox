@@ -27,6 +27,15 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        .reveal{
+            opacity:0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.active{
+            opacity:1;
+            transform: translateY(0);
+        }
 
         /* 顶部横幅 */
         .site-cover {
@@ -91,21 +100,21 @@
         }
 
         .section-wrap {
-            margin-bottom: 64px;
+            margin-bottom: 72px;
         }
         .section-title {
             font-size: 22px;
             font-weight: 500;
             color: #222;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             position: relative;
         }
         .section-title::after {
             content: "";
             display: block;
             width: 56px;
-            height: 2px;
+            height: 1.5px;
             background-color: #9b7b3f;
             margin: 10px auto 0;
         }
@@ -125,6 +134,7 @@
             gap: 14px;
             flex-wrap: wrap;
             justify-content: center;
+            margin-top:24px;
         }
         .tags span {
             padding: 8px 20px;
@@ -144,28 +154,67 @@
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-            gap: 20px;
+            gap: 22px;
             margin-top:24px;
         }
         .service-item {
-            padding:24px 18px;
+            padding:26px 20px;
             background:#fff;
             border:1px solid #eee;
-            border-radius:12px;
+            border-radius:14px;
             text-align:center;
             transition:0.3s;
         }
         .service-item:hover{
             border-color:#9b7b3f;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(155,123,63,0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 24px rgba(155,123,63,0.09);
         }
         .service-item h4{
+            color:#222;
+            margin-bottom:10px;
+            font-weight:500;
+            font-size:17px;
+        }
+        .service-item p{
+            font-size:14px;
+            color:#666;
+        }
+
+        /* 拍卖标的 */
+        .lot-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+            gap:22px;
+            margin-top:24px;
+        }
+        .lot-card{
+            background:#fff;
+            border:1px solid #eee;
+            border-radius:14px;
+            padding:24px;
+            transition:0.3s;
+        }
+        .lot-card:hover{
+            border-color:#9b7b3f;
+            transform: translateY(-4px);
+            box-shadow:0 10px 24px rgba(155,123,63,0.09);
+        }
+        .lot-card h4{
             color:#222;
             margin-bottom:8px;
             font-weight:500;
         }
-        .service-item p{
+        .lot-tag{
+            display:inline-block;
+            font-size:12px;
+            color:#9b7b3f;
+            border:1px solid #9b7b3f;
+            padding:2px 8px;
+            border-radius:4px;
+            margin-bottom:12px;
+        }
+        .lot-card p{
             font-size:14px;
             color:#666;
         }
@@ -190,7 +239,7 @@
         }
         .card:hover {
             border-color: #9b7b3f;
-            box-shadow: 0 10px 28px rgba(155,123,63,0.1);
+            box-shadow: 0 12px 30px rgba(155,123,63,0.11);
         }
         .avatar {
             width: 110px;
@@ -264,7 +313,7 @@
             .container {
                 margin-top: 40px;
             }
-            .service-grid{
+            .service-grid, .lot-grid{
                 grid-template-columns: 1fr;
             }
         }
@@ -289,22 +338,26 @@
                 background-color: #9b7b3f;
                 color: #111;
             }
-            .service-item{
+            .service-item, .lot-card{
                 background:#1f1f1f;
                 border-color:#2d2d2d;
             }
-            .service-item h4{
+            .service-item h4, .lot-card h4{
                 color:#eee;
             }
-            .service-item p{
+            .service-item p, .lot-card p{
                 color:#aaa;
+            }
+            .lot-tag{
+                color:#c9a86c;
+                border-color:#c9a86c;
             }
             .card {
                 background: #1f1f1f;
                 border-color:#2d2d2d;
             }
             .card:hover {
-                box-shadow: 0 10px 28px rgba(155,123,63,0.12);
+                box-shadow: 0 12px 30px rgba(155,123,63,0.12);
             }
             .avatar {
                 border-color: #333;
@@ -351,12 +404,19 @@
 </section>
 
 <div class="container">
-    <div class="section-wrap about">
+    <div class="section-wrap about reveal">
         <div class="section-title">关于我们</div>
         <p>臻达拍卖专注工艺品、艺术品与资产拍卖业务，秉持诚信、严谨的原则，为藏家与竞买人搭建可靠的交易渠道，提供藏品征集、鉴定咨询、拍卖全流程配套服务。</p>
+        <div class="tags">
+            <span>工艺品拍卖</span>
+            <span>艺术品拍卖</span>
+            <span>标的征集</span>
+            <span>鉴定咨询</span>
+            <span>资产拍卖</span>
+        </div>
     </div>
 
-    <div class="section-wrap">
+    <div class="section-wrap reveal">
         <div class="section-title">业务范围</div>
         <div class="service-grid">
             <div class="service-item">
@@ -378,7 +438,28 @@
         </div>
     </div>
 
-    <div class="section-wrap">
+    <div class="section-wrap reveal">
+        <div class="section-title">近期标的</div>
+        <div class="lot-grid">
+            <div class="lot-card">
+                <span class="lot-tag">工艺品</span>
+                <h4>和田玉手把件</h4>
+                <p>质地温润，雕工精细，适合收藏把玩，本场上拍藏品。</p>
+            </div>
+            <div class="lot-card">
+                <span class="lot-tag">书画</span>
+                <h4>山水立轴</h4>
+                <p>传统水墨山水，笔墨沉稳，为书画收藏优选标的。</p>
+            </div>
+            <div class="lot-card">
+                <span class="lot-tag">瓷器</span>
+                <h4>仿古青花赏瓶</h4>
+                <p>发色均匀，器型端庄，陈设与收藏皆宜。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-wrap reveal">
         <div class="section-title">核心团队</div>
         <div class="team-wrap">
             <div class="card">
@@ -571,6 +652,15 @@ fetch("/cdn-cgi/trace", {
 .catch(()=>{
     el.textContent = "获取失败";
 })
+
+// 滚动渐入
+const reveals = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("active");
+    })
+},{threshold:0.12});
+reveals.forEach(r=>observer.observe(r));
 </script>
 </body>
 </html>
